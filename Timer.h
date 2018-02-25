@@ -4,7 +4,7 @@
 #define		_TIMER_H_
 
 
-#include "common.h"
+#include "Common.h"
 
 
 extern u32 g_ulSysTicks;      //系统时间
