@@ -4,7 +4,7 @@
 
 #include "common.h"
 
-sbit LED0 = P2^7;
+sbit LED0 = P1^0;
 
 //#define	LED0_PORT		P1
 //#define LED0_PIN		0

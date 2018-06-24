@@ -1,8 +1,6 @@
 
 #include "timer.h"
-#include "PID.h"
-#include "ExtInt.h"
-#include "qpn.h"   
+#include "ExtInt.h"  
 
 
 
@@ -66,7 +64,6 @@ void TM0_ISR(void)  interrupt 1
 	TL0	= SYS_TICKS_CLK;                     //initial timer0 low byte
 	TH0	= SYS_TICKS_CLK >> 8;                //initial timer0 high byte
 	g_ulSysTicks++;	
-    QF_tickXISR(0U);
 }
 
 /**

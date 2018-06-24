@@ -4,6 +4,7 @@
 
 u16		CCAP1_tmp;
 bit		B_Capture1;
+sbit LED7 = P1^7;
 
 void PCA_Init(void)
 {
@@ -15,9 +16,9 @@ void PCA_Init(void)
     CH = 0;
     CMOD |= 0x00;                    //Set PCA timer clock source as Fosc/12
                                     //Disable PCA timer overflow interrupt
-    CCAPM1 = 0x11;                  //PCA module-0 capture by a negative tigger on CEX0(P1.3) and enable PCA interrupt
+//    CCAPM1 = 0x11;                  //PCA module-0 capture by a negative tigger on CEX0(P1.3) and enable PCA interrupt
 //  CCAPM1 = 0x21;                  //PCA module-0 capture by a rising edge on CEX0(P1.3) and enable PCA interrupt
-//	CCAPM1 = 0x31;                  //PCA module-0 capture by a transition (falling/rising edge) on CEX0(P1.3) and enable PCA interrupt
+	CCAPM1 = 0x31;                  //PCA module-0 capture by a transition (falling/rising edge) on CEX0(P1.3) and enable PCA interrupt
 
     CR = 1;                         //PCA timer start run
 }
@@ -27,7 +28,8 @@ void PCA_Init(void)
 void PCA1_ISR() interrupt 7 using 1
 {
     CCF1 = 0;                       //Clear interrupt flag
-	CCAP1_tmp = CCAP1H;	//¶ÁCCAP1H
-	CCAP1_tmp = (CCAP1_tmp << 8) + CCAP1L;
+	//CCAP1_tmp = CCAP1H;	//¶ÁCCAP1H
+	CCAP1_tmp = (CCAP1H << 8) | CCAP1L;
 	B_Capture1 = 1;
+	LED7 = !LED7;
 }

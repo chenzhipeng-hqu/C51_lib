@@ -12,9 +12,9 @@
 //#define uint  unsigned int
 
 
-sbit LCD_RS = P2^0;
-sbit LCD_RW = P2^1;
-sbit LCD_E  = P2^2;
+sbit LCD_RS = P2^5;
+sbit LCD_RW = P2^6;
+sbit LCD_E  = P2^7;
 
 void LCD_Init(void);
 void LCD_Com(uchar com);
