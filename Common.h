@@ -62,8 +62,8 @@ typedef 	unsigned int  			uint,u16,uint16,uint16_t;
 typedef 	unsigned long int		ulint,u32,ulint32,ulint32_t;
 
 typedef enum{
-	DISABLE = 0,ERROR = 0,fault 	= 0,FALSE = 0,false	= 0,OFF = 0,
-	ENABLE  = 1,OK 	  = 1,SUCCESS = 1,TRUE  = 1,true	= 1,ON = 1
+	DISABLE = 0,ERROR = 0,fault 	= 0,FALSE = 0,false	= 0,OFF = 0,LOW = 0,
+	ENABLE  = 1,OK 	  = 1,SUCCESS = 1,TRUE  = 1,true	= 1,ON = 1,	HIGH = 1
 }eR_STATE;
 
 /*************************************

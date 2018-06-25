@@ -31,5 +31,5 @@ void PCA1_ISR() interrupt 7 using 1
 	//CCAP1_tmp = CCAP1H;	//¶ÁCCAP1H
 	CCAP1_tmp = (CCAP1H << 8) | CCAP1L;
 	B_Capture1 = 1;
-	LED7 = !LED7;
+	CCAP1H = CCAP1L = 0;
 }
