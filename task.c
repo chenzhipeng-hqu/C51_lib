@@ -9,7 +9,10 @@ int TaskInitial(u8 task_max)
 	Task_Max = task_max;
 	for (i=0; i<Task_Max; i++) 
 	{  
-		Task_Array[i].TaskInit();
+		if(Task_Array[i].TaskInit != NULL)
+		{
+			Task_Array[i].TaskInit();		
+		}
 	} 
 	return 0;
 }
@@ -23,7 +26,10 @@ int TaskScheduler(void)
 		if(Task_Array[i].State == READY)
 		{
 			Task_Array[i].State = RUNING;
-			Task_Array[i].TaskHook();
+			if(Task_Array[i].TaskHook != NULL)
+			{				
+				Task_Array[i].TaskHook();
+			}
 			Task_Array[i].State = SUSPEND;
 		}	
 	} 
