@@ -167,7 +167,7 @@ void CaptureCallback(void)
 		IR_Obj.len = 0;
 		IR_Obj.state = CAPTURE_STAT_IDLE;
 	}
-	CCAP1H = CCAP1L = 0;
+	CH = CL = 0;
 }/**/
 
 /**
