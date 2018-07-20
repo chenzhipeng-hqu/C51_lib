@@ -88,7 +88,7 @@ const IR_FuncList_t IR_FuncList[] = { 	//don't change sequence, add after last
 int InfraRed_RX_Init(void)
 {
 	uint8_t IR_Typex;
-	IR_Obj.IRType = IRType_RCA;
+	IR_Obj.IRType = IRType_NEC;
 	
 	for (IR_Typex=0; IR_Typex<sizeof(IR_FuncList)/sizeof(IR_FuncList[0]); IR_Typex++)
 	{
