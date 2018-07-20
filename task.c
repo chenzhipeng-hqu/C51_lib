@@ -1,17 +1,21 @@
 
 #include "task.h"
+#include "Timer.h"
 
 u8 Task_Max = 1;
+static volatile u32 *pulSysTicks;							 //用于记录系统时钟地址
 
-int TaskInitial(u8 task_max)
+int TaskInitial(u8 task_max, volatile u32 *ulSysClock)
 {
 	u8 i = 0;
 	Task_Max = task_max;
+	pulSysTicks = TM0_Init();
+	EA = 1;
 	for (i=0; i<Task_Max; i++) 
 	{  
 		if(Task_Array[i].TaskInit != NULL)
 		{
-			Task_Array[i].TaskInit();		
+			Task_Array[i].TaskInit(pulSysTicks);		
 		}
 	} 
 	return 0;

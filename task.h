@@ -19,13 +19,13 @@ typedef struct _TaskTypeDef
 	TaskState State;                 // RUN, READY, SUSPEND
 	u8 Timer;              // 
 	u8 ItvTime;              // 
-	void (*TaskInit)(void);
+	void (*TaskInit)(volatile u32 *);
 	void (*TaskHook)(void);    // 
 } TaskTypeDef;       // 
 
 extern TaskTypeDef xdata Task_Array[];
 
-extern int TaskInitial(u8 task_max);
+extern int TaskInitial(u8 task_max, volatile u32 *ulSysClock);
 
 extern int TaskScheduler(void);
 
