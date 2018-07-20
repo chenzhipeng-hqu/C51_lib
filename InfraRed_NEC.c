@@ -1,7 +1,7 @@
 
 #include "InfraRed.h"
 
-static IR_TypeDef IR_Obj = {0};
+//static IR_TypeDef IR_Obj = {0};
 
 const IR_BufTypeDef IR_NEC_head[] = {
 	{9000, HIGH},
